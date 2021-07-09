@@ -29,8 +29,24 @@ Widget dbScreen() {
     Electricity("05/07", 0, charts.ColorUtil.fromDartColor(Colors.blue)),
     Electricity("04/07", 29, charts.ColorUtil.fromDartColor(Colors.blue)),
     Electricity("03/07", 25, charts.ColorUtil.fromDartColor(Colors.blue)),
-    Electricity("02/07", 15, charts.ColorUtil.fromDartColor(Colors.blue)),
-    Electricity("01/07", 15, charts.ColorUtil.fromDartColor(Colors.blue)),
+    Electricity("04/08", 29, charts.ColorUtil.fromDartColor(Colors.blue)),
+    Electricity("03/08", 25, charts.ColorUtil.fromDartColor(Colors.blue)),
+    Electricity("04/09", 29, charts.ColorUtil.fromDartColor(Colors.blue)),
+    Electricity("03/09", 25, charts.ColorUtil.fromDartColor(Colors.blue)),
+    Electricity("04/10", 29, charts.ColorUtil.fromDartColor(Colors.blue)),
+    Electricity("03/10", 25, charts.ColorUtil.fromDartColor(Colors.blue)),
+    Electricity("04/10", 29, charts.ColorUtil.fromDartColor(Colors.blue)),
+    Electricity("03/10", 25, charts.ColorUtil.fromDartColor(Colors.blue)),
+    Electricity("03/11", 25, charts.ColorUtil.fromDartColor(Colors.blue)),
+    Electricity("03/11", 25, charts.ColorUtil.fromDartColor(Colors.blue)),
+    Electricity("03/12", 25, charts.ColorUtil.fromDartColor(Colors.blue)),
+    Electricity("03/12", 25, charts.ColorUtil.fromDartColor(Colors.blue)),
+    Electricity("01/11", 25, charts.ColorUtil.fromDartColor(Colors.blue)),
+    Electricity("02/11", 25, charts.ColorUtil.fromDartColor(Colors.blue)),
+    Electricity("04/11", 25, charts.ColorUtil.fromDartColor(Colors.blue)),
+    Electricity("05/11", 25, charts.ColorUtil.fromDartColor(Colors.blue)),
+    Electricity("06/11", 25, charts.ColorUtil.fromDartColor(Colors.blue)),
+    Electricity("07/11", 25, charts.ColorUtil.fromDartColor(Colors.blue)),
   ];
   return Scaffold(
       appBar: AppBar(
@@ -69,9 +85,12 @@ Widget dbScreen() {
               electric(),
               Container(
                   padding: EdgeInsets.only(top: 0),
-                  child: barCharts(
-                    data: data,
-                  ))
+                  child: SingleChildScrollView(
+                      child: SizedBox(
+                          height: 400,
+                          child: barCharts(
+                            data: data,
+                          ))))
             ],
           )));
 }

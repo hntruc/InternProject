@@ -25,7 +25,16 @@ class barCharts extends StatelessWidget {
           padding: const EdgeInsets.only(top: 0),
           child: Column(
             children: <Widget>[
-              Expanded(child: charts.BarChart(series, animate: true))
+              Expanded(
+                  child: charts.BarChart(
+                series,
+                animate: true,
+                vertical: false,
+                barGroupingType: charts.BarGroupingType.grouped,
+                defaultRenderer: new charts.BarRendererConfig(
+                    maxBarWidthPx: 20,
+                    cornerStrategy: const charts.ConstCornerStrategy(30)),
+              ))
             ],
           ),
         ),
