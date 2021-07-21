@@ -36,17 +36,6 @@ Widget dbScreen() {
     Electricity("04/10", 29, charts.ColorUtil.fromDartColor(Colors.blue)),
     Electricity("03/10", 25, charts.ColorUtil.fromDartColor(Colors.blue)),
     Electricity("04/10", 29, charts.ColorUtil.fromDartColor(Colors.blue)),
-    Electricity("03/10", 25, charts.ColorUtil.fromDartColor(Colors.blue)),
-    Electricity("03/11", 25, charts.ColorUtil.fromDartColor(Colors.blue)),
-    Electricity("03/11", 25, charts.ColorUtil.fromDartColor(Colors.blue)),
-    Electricity("03/12", 25, charts.ColorUtil.fromDartColor(Colors.blue)),
-    Electricity("03/12", 25, charts.ColorUtil.fromDartColor(Colors.blue)),
-    Electricity("01/11", 25, charts.ColorUtil.fromDartColor(Colors.blue)),
-    Electricity("02/11", 25, charts.ColorUtil.fromDartColor(Colors.blue)),
-    Electricity("04/11", 25, charts.ColorUtil.fromDartColor(Colors.blue)),
-    Electricity("05/11", 25, charts.ColorUtil.fromDartColor(Colors.blue)),
-    Electricity("06/11", 25, charts.ColorUtil.fromDartColor(Colors.blue)),
-    Electricity("07/11", 25, charts.ColorUtil.fromDartColor(Colors.blue)),
   ];
   return Scaffold(
       appBar: AppBar(
@@ -98,13 +87,13 @@ Widget dbScreen() {
 // Component list khách hàng
 Widget customerList() {
   return Container(
-      padding: EdgeInsets.all(12.0),
-      height: 60,
+      padding: EdgeInsets.only(left: 12.0, top: 0.0),
+      height: 50,
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: [
           customer(),
-          Padding(padding: EdgeInsets.all(8.0)),
+          Padding(padding: EdgeInsets.only(right: 8.0)),
           customer(),
           IconButton(
               onPressed: () {
@@ -120,14 +109,16 @@ Widget customer() {
   return Container(
     width: 120,
     //padding: EdgeInsets.only(right: 12),
+
     child: Center(
         child: Text("Nguyễn Bá Phúc",
             style: TextStyle(
                 fontWeight: FontWeight.bold, color: Colors.blue[900]))),
     decoration: BoxDecoration(
-      border: Border.all(width: 1.0),
+      //border: Border.all(width: 1.0),
       borderRadius: BorderRadius.all(Radius.circular(5.0) //
           ),
+      color: Colors.white,
     ),
   );
 }
@@ -152,9 +143,12 @@ Widget electric() {
           Container(
               padding: EdgeInsets.only(top: 150, bottom: 0),
               child: Text("Chi tiết điện tiêu thụ",
-                  style: TextStyle(color: Colors.blue[900], fontSize: 16))),
+                  style: TextStyle(
+                      color: Colors.blue[900],
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold))),
           Container(
-            padding: EdgeInsets.only(top: 162, bottom: 0),
+            padding: EdgeInsets.only(top: 166, bottom: 0),
             child: Divider(
               thickness: 3,
               color: Color(0xfffee48d),
