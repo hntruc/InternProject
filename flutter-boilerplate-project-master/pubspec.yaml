@@ -14,8 +14,11 @@ environment:
   
 
 dependencies:
+  advance_pdf_viewer: any
   flutter:
     sdk: flutter
+
+    
   
   charts_flutter: ^0.10.0
 

@@ -1,5 +1,5 @@
 import 'package:boilerplate/ui/home/home.dart';
-import 'package:boilerplate/ui/login/login.dart';
+import 'package:boilerplate/ui/login/my_login.dart';
 import 'package:boilerplate/ui/splash/splash.dart';
 import 'package:flutter/material.dart';
 
@@ -17,6 +17,3 @@ class Routes {
     home: (BuildContext context) => HomeScreen(),
   };
 }
-
-
-

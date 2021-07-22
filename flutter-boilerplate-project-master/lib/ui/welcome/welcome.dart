@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:boilerplate/constants/text_style.dart';
+import 'package:boilerplate/ui/login/my_login.dart';
 
 class welcomeScreen extends StatefulWidget {
   const welcomeScreen({Key? key}) : super(key: key);
@@ -97,7 +98,7 @@ class _welcomeScreenState extends State<welcomeScreen> {
                           SizedBox(
                             height: 30,
                           ),
-                          _buildLoginBtn(),
+                          _buildLoginBtn(context),
                           SizedBox(
                             height: 30,
                           ),
@@ -116,13 +117,16 @@ class _welcomeScreenState extends State<welcomeScreen> {
   }
 }
 
-Widget _buildLoginBtn() {
+Widget _buildLoginBtn(context) {
   return Container(
     height: 50,
     padding: EdgeInsets.symmetric(vertical: 0),
     width: double.infinity,
     child: ElevatedButton(
-      onPressed: () => print("Login is pressed"),
+      onPressed: () {
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => LoginScreen()));
+      },
       child: const Text(
         "Đăng nhập",
         style: TextStyle(fontSize: 20),
