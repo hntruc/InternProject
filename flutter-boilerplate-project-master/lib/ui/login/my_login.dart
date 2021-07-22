@@ -1,3 +1,4 @@
+import 'package:boilerplate/ui/forgot_pwd/forgot_pwd.dart';
 import 'package:boilerplate/ui/notice/notification.dart';
 import 'package:boilerplate/ui/register/register01.dart';
 import 'package:flutter/material.dart';
@@ -190,6 +191,9 @@ Widget _buildForgotPwdBtn(context) {
       child: TextButton(
         child: Text("Quên mật khẩu?",
             style: TextStyle(color: Colors.grey, fontSize: 18)),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => forgotPwdScreen()));
+        },
       ));
 }
