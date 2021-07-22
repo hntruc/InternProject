@@ -1,3 +1,4 @@
+import 'package:boilerplate/ui/notice/notification.dart';
 import 'package:boilerplate/ui/register/register01.dart';
 import 'package:flutter/material.dart';
 import 'package:boilerplate/ui/welcome/welcome.dart';
@@ -150,8 +151,8 @@ Widget _buildLogInBtn(context) {
       ),
       onPressed: () {
         //Navigator.of(context).pushNamed('home');
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => welcomeScreen()));
+        Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => notificationScreen()));
       },
       style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all(Color(0xFF20B2AA)),

@@ -1,4 +1,25 @@
+import 'dart:io';
+import 'dart:typed_data';
+import 'package:boilerplate/ui/welcome/welcome.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_full_pdf_viewer/full_pdf_viewer_scaffold.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:boilerplate/ui/pdf/pdf.dart';
+
+const String _documentPath = 'assets/pdf_files/electricity.pdf';
+
+Future<String> prepareTestPdf(context) async {
+  final ByteData bytes =
+      await DefaultAssetBundle.of(context).load(_documentPath);
+  final Uint8List list = bytes.buffer.asUint8List();
+
+  final tempDir = await getTemporaryDirectory();
+  final tempDocumentPath = '${tempDir.path}/$_documentPath';
+
+  final file = await File(tempDocumentPath).create(recursive: true);
+  file.writeAsBytesSync(list);
+  return tempDocumentPath;
+}
 
 class notificationScreen extends StatefulWidget {
   const notificationScreen({Key? key}) : super(key: key);
@@ -11,7 +32,7 @@ class _notificationScreenState extends State<notificationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: _appBar(),
+        appBar: _appBar(context),
         body: Container(
           color: new Color(0xFFf5f6fa),
           child: Column(children: [
@@ -62,14 +83,12 @@ class _notificationScreenState extends State<notificationScreen> {
               child: SingleChildScrollView(
                   child: Column(
                 children: [
-                  singleNew(),
-                  singleNew(),
-                  singleNew(),
-                  singleNew(),
-                  singleNew(),
-                  singleNew(),
-                  singleNew(),
-                  singleNew()
+                  singleNew(context),
+                  singleNew(context),
+                  singleNew(context),
+                  singleNew(context),
+                  singleNew(context),
+                  singleNew(context)
                 ],
               )),
             ),
@@ -78,24 +97,22 @@ class _notificationScreenState extends State<notificationScreen> {
   }
 }
 
-PreferredSizeWidget _appBar() {
+PreferredSizeWidget _appBar(context) {
   return AppBar(
-    title: Center(
-      child: Padding(
-          padding: const EdgeInsets.only(left: 50), child: Text("Quý khách")),
-    ),
-    backgroundColor: Colors.blue[900],
+    title: Center(child: Text("Quý khách")),
+    backgroundColor: Color(0xFF008080),
     actions: [
       IconButton(
           onPressed: () {
-            print("Sth");
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => welcomeScreen()));
           },
           icon: Icon(Icons.notifications, size: 32))
     ],
   );
 }
 
-Widget singleNew() {
+Widget singleNew(context) {
   return Container(
     padding: EdgeInsets.all(8.0),
     child: Card(
@@ -130,7 +147,15 @@ Widget singleNew() {
                   ),
                   padding: const EdgeInsets.only(top: 4, left: 20),
                 ),
-                onTap: () => print("Tapped"),
+                onTap: () => {
+                  prepareTestPdf(context).then((path) => {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    FullPdfViewerScreen(path)))
+                      })
+                },
               ),
               InkWell(
                 child: Container(
@@ -142,7 +167,15 @@ Widget singleNew() {
                   ),
                   padding: const EdgeInsets.only(top: 4, left: 20),
                 ),
-                onTap: () => print("Tapped"),
+                onTap: () => {
+                  prepareTestPdf(context).then((path) => {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    FullPdfViewerScreen(path)))
+                      })
+                },
               )
             ]),
           ),

@@ -1,6 +1,7 @@
+import 'package:boilerplate/ui/register/register01.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:boilerplate/constants/text_style.dart';
+
 import 'package:boilerplate/ui/login/my_login.dart';
 
 class welcomeScreen extends StatefulWidget {
@@ -28,7 +29,7 @@ class _welcomeScreenState extends State<welcomeScreen> {
                     gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: [Colors.blue, Colors.black],
+                  colors: [Colors.blue, Colors.green],
                   //stops: [0.1, 0.4, 0.7, 0.9],
                 )),
               ),
@@ -44,34 +45,18 @@ class _welcomeScreenState extends State<welcomeScreen> {
                       Row(
                         children: [],
                       ),
-                      Align(
-                        alignment: Alignment.bottomCenter,
-                        child: Image.network(
-                          "https://hozota.com/upload/images/20170915183529526794_a.jpg",
-                          width: 150,
-                          height: 150,
-                        ),
-                      ),
                       SizedBox(height: 50.0),
                       Column(
                         children: [
                           Align(
                             alignment: Alignment.bottomLeft,
                             child: Text(
-                              "Tiết kiệm hôm nay",
+                              "Đăng ký thành viên để tham gia các chương trình tích điểm đổi quà hấp dẫn",
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 24,
                                   fontWeight: FontWeight.bold),
                             ),
-                          ),
-                          Align(
-                            alignment: Alignment.bottomLeft,
-                            child: Text("Thắp sáng ngày mai",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.bold)),
                           ),
                           SizedBox(
                             height: 15,
@@ -88,13 +73,6 @@ class _welcomeScreenState extends State<welcomeScreen> {
                           SizedBox(
                             height: 15.0,
                           ),
-                          Align(
-                            alignment: Alignment.bottomLeft,
-                            child: Text(
-                                "Đăng ký thành viên để tham gia các chương trình tích điểm đổi quà hấp dẫn",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 18)),
-                          ),
                           SizedBox(
                             height: 30,
                           ),
@@ -102,7 +80,7 @@ class _welcomeScreenState extends State<welcomeScreen> {
                           SizedBox(
                             height: 30,
                           ),
-                          _buildRegisterBtn()
+                          _buildRegisterBtn(context)
                         ],
                       )
                     ],
@@ -142,13 +120,16 @@ Widget _buildLoginBtn(context) {
   );
 }
 
-Widget _buildRegisterBtn() {
+Widget _buildRegisterBtn(context) {
   return Container(
     height: 50,
     padding: EdgeInsets.symmetric(vertical: 0),
     width: double.infinity,
     child: ElevatedButton(
-      onPressed: () => print("Login is pressed"),
+      onPressed: () => {
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => registerScreen01()))
+      },
       child: const Text(
         "Đăng ký",
         style: TextStyle(color: Colors.blueGrey, fontSize: 20),

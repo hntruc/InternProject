@@ -1,5 +1,5 @@
+import 'package:boilerplate/ui/notice/notification.dart';
 import 'package:flutter/material.dart';
-import 'package:boilerplate/ui/register/register01.dart';
 
 class registerScreen05 extends StatefulWidget {
   const registerScreen05({Key? key}) : super(key: key);
@@ -147,8 +147,8 @@ Widget _buildGradientNextBtn(context) {
       ),
       onPressed: () {
         //Navigator.of(context).pushNamed('home');
-        // Navigator.of(context)
-        //     .push(MaterialPageRoute(builder: (context) => registerScreen02()));
+        Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => notificationScreen()));
       },
       style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all(Colors.indigo),
