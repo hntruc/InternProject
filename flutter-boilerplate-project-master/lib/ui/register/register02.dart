@@ -1,4 +1,5 @@
 import 'package:boilerplate/ui/register/register03.dart';
+import 'package:boilerplate/ui/speed_dial.dart';
 import 'package:flutter/material.dart';
 
 class registerScreen02 extends StatefulWidget {
@@ -12,6 +13,7 @@ class _registerScreen02State extends State<registerScreen02> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: speedDial(),
       //resizeToAvoidBottomPadding: false,
       resizeToAvoidBottomInset: true,
       body: Container(
@@ -140,16 +142,32 @@ Widget signUpCardUI(BuildContext context) {
 Widget _buildRegisterTextBtn(context) {
   return Container(
     child: Row(
-      mainAxisAlignment: MainAxisAlignment.end,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         TextButton(
           child: Text("Gửi lại OTP (25s)",
               style: TextStyle(color: Colors.red, fontSize: 17)),
           onPressed: () {
             print("Call send_OTP_function again");
-            Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => registerScreen03()));
           },
+        ),
+        Container(
+          height: 40,
+          width: 120,
+          child: ElevatedButton(
+            onPressed: () => {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => registerScreen03()))
+            },
+            child: Text("Xác thực"),
+            style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Color(0xFFc9c9d3)),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(32.0),
+                        side: (BorderSide(color: Colors.black))))),
+          ),
         )
       ],
     ),

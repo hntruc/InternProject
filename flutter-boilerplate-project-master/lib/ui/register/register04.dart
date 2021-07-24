@@ -1,3 +1,4 @@
+import 'package:boilerplate/ui/speed_dial.dart';
 import 'package:flutter/material.dart';
 import 'package:boilerplate/ui/register/register05.dart';
 
@@ -12,6 +13,7 @@ class _registerScreen04State extends State<registerScreen04> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: speedDial(),
       //resizeToAvoidBottomPadding: false,
       resizeToAvoidBottomInset: true,
       body: Container(

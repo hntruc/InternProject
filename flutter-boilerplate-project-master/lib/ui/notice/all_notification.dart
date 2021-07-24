@@ -2,7 +2,7 @@ import 'dart:io';
 import 'dart:typed_data';
 import 'package:boilerplate/ui/content/html.dart';
 import 'package:boilerplate/ui/dashboard/dashboard.dart';
-import 'package:boilerplate/ui/notice/all_notification.dart';
+import 'package:boilerplate/ui/speed_dial.dart';
 import 'package:boilerplate/ui/welcome/welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
@@ -23,25 +23,19 @@ Future<String> prepareTestPdf(context) async {
   return tempDocumentPath;
 }
 
-class notificationScreen extends StatefulWidget {
-  const notificationScreen({Key? key}) : super(key: key);
+class allNotificationScreen extends StatefulWidget {
+  const allNotificationScreen({Key? key}) : super(key: key);
 
   @override
-  _notificationScreenState createState() => _notificationScreenState();
+  _allNotificationScreenState createState() => _allNotificationScreenState();
 }
 
-final elec_money = "1.000.000";
-
-class _notificationScreenState extends State<notificationScreen> {
+class _allNotificationScreenState extends State<allNotificationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        floatingActionButton: speedDial(),
         appBar: _appBar(context),
-        floatingActionButton: FloatingActionButton.extended(
-            backgroundColor: Colors.green.shade300,
-            foregroundColor: Colors.white,
-            onPressed: () {},
-            label: Text("Tiền điện đến giờ là: ${elec_money}đ rồi đấy!")),
         body: Container(
           color: new Color(0xFFf5f6fa),
           child: Column(children: [
@@ -59,24 +53,6 @@ class _notificationScreenState extends State<notificationScreen> {
                               fontWeight: FontWeight.bold,
                               fontSize: 18),
                         ),
-                        Container(
-                          padding: EdgeInsets.only(left: 190),
-                          child: TextButton(
-                            style: TextButton.styleFrom(
-                              textStyle: const TextStyle(fontSize: 20),
-                            ),
-                            onPressed: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) =>
-                                      allNotificationScreen()));
-                            },
-                            child: const Text(
-                              'Xem tất cả \u{25B6}',
-                              style:
-                                  TextStyle(fontSize: 16, color: Colors.grey),
-                            ),
-                          ),
-                        )
                       ],
                     ),
                   )),
@@ -96,6 +72,10 @@ class _notificationScreenState extends State<notificationScreen> {
               child: SingleChildScrollView(
                   child: Column(
                 children: [
+                  singleNew(context),
+                  singleNew(context),
+                  singleNew(context),
+                  singleNew(context),
                   singleNew(context),
                   singleNew(context),
                   singleNew(context),
@@ -199,17 +179,3 @@ Widget singleNew(context) {
     ),
   );
 }
-// Container(
-//               width: 40,
-//               height: 40,
-//               alignment: Alignment.bottomRight,
-//               child: DraggableFab(
-//                   child: Stack(
-//                 children: [
-//                   Image.asset("assets/images/textbox.png"),
-//                   Center(
-//                     child: Text("Tiền điện"),
-//                   )
-//                 ],
-//               )),
-//             )

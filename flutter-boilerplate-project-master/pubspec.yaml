@@ -17,9 +17,10 @@ dependencies:
   flutter_full_pdf_viewer: ^1.0.4
   flutter:
     sdk: flutter
+  flutter_html: ^1.0.2
+  draggable_fab: ^0.1.1
+  flutter_speed_dial: ^3.0.5
 
-    
-  
   charts_flutter: ^0.10.0
 
   flutter_localizations:

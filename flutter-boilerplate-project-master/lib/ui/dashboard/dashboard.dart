@@ -1,8 +1,11 @@
+import 'package:boilerplate/ui/speed_dial.dart';
+import 'package:boilerplate/ui/welcome/welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:boilerplate/constants/font_family.dart';
 import 'package:boilerplate/models/electricity/electricity.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:boilerplate/ui/bar_chart.dart';
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
 class dashboardScreen extends StatefulWidget {
   @override
@@ -16,14 +19,14 @@ class _dashboardScreen extends State<dashboardScreen> {
     return MaterialApp(
       title: 'Dashboard',
       theme: ThemeData(fontFamily: FontFamily.roboto),
-      home: dbScreen(),
+      home: dbScreen(context),
       debugShowCheckedModeBanner: false,
     );
   }
 }
 
 // Màn hình dashboard
-Widget dbScreen() {
+Widget dbScreen(context) {
   final List<Electricity> data = [
     Electricity("06/07", 0, charts.ColorUtil.fromDartColor(Colors.blue)),
     Electricity("05/07", 0, charts.ColorUtil.fromDartColor(Colors.blue)),
@@ -38,21 +41,32 @@ Widget dbScreen() {
     Electricity("04/10", 29, charts.ColorUtil.fromDartColor(Colors.blue)),
   ];
   return Scaffold(
+      floatingActionButton: speedDial(),
       appBar: AppBar(
         title: Center(
             child: Padding(
-                padding: const EdgeInsets.only(left: 80),
+                padding: const EdgeInsets.only(left: 40),
                 child: Text(
                   "Theo dõi điện",
                   style: TextStyle(color: Colors.blue[900]),
                 ))),
         backgroundColor: Colors.grey[200],
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => welcomeScreen()));
+          },
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.blue.shade900,
+          ),
+        ),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.headset_mic_rounded),
             color: Colors.blue[900],
             onPressed: () {
-              print("ok");
+              print("Support btn is clicked.");
             },
           ),
           Padding(

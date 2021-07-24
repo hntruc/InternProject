@@ -1,6 +1,8 @@
 import 'package:boilerplate/ui/notice/notification.dart';
+import 'package:boilerplate/ui/speed_dial.dart';
 import 'package:flutter/material.dart';
 import 'package:boilerplate/ui/register/register04.dart';
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
 class forgotPwdScreen extends StatefulWidget {
   const forgotPwdScreen({Key? key}) : super(key: key);
@@ -13,6 +15,7 @@ class _forgotPwdScreenState extends State<forgotPwdScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: speedDial(),
       //resizeToAvoidBottomPadding: false,
       resizeToAvoidBottomInset: true,
       body: Container(
