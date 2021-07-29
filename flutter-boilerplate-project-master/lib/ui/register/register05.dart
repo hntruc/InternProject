@@ -13,7 +13,6 @@ class _registerScreen05State extends State<registerScreen05> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: speedDial(),
       //resizeToAvoidBottomPadding: false,
       resizeToAvoidBottomInset: true,
       body: Container(

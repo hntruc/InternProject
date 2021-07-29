@@ -7,6 +7,7 @@ import 'package:boilerplate/ui/welcome/welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:draggable_fab/draggable_fab.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 const String _documentPath = 'assets/pdf_files/electricity.pdf';
 
@@ -37,11 +38,30 @@ class _notificationScreenState extends State<notificationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: _appBar(context),
-        floatingActionButton: FloatingActionButton.extended(
-            backgroundColor: Colors.green.shade300,
-            foregroundColor: Colors.white,
-            onPressed: () {},
-            label: Text("Tiền điện đến giờ là: ${elec_money}đ rồi đấy!")),
+        floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
+        floatingActionButton: new FloatingActionButton(
+          elevation: 2.0,
+          child: Image.asset("assets/images/money01.png"),
+          backgroundColor: Colors.green.shade100,
+          onPressed: () {
+            Alert(
+                context: context,
+                type: AlertType.info,
+                title: "Thông báo",
+                desc: "Tiền điện đến giờ là: ${elec_money}đ rồi đấy!",
+                //image: Image.asset("assets/images/money01.png"),
+                buttons: [
+                  DialogButton(
+                    child: Text("OK!"),
+                    onPressed: () => Navigator.pop(context),
+                    gradient: LinearGradient(colors: [
+                      Color.fromRGBO(0, 179, 134, 1.0),
+                      Color.fromRGBO(52, 138, 199, 1.0)
+                    ]),
+                  )
+                ]).show();
+          },
+        ),
         body: Container(
           color: new Color(0xFFf5f6fa),
           child: Column(children: [
@@ -96,6 +116,7 @@ class _notificationScreenState extends State<notificationScreen> {
               child: SingleChildScrollView(
                   child: Column(
                 children: [
+                  singleNew(context),
                   singleNew(context),
                   singleNew(context),
                   singleNew(context),
@@ -199,6 +220,8 @@ Widget singleNew(context) {
     ),
   );
 }
+
+
 // Container(
 //               width: 40,
 //               height: 40,
