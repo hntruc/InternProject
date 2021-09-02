@@ -172,7 +172,7 @@ Widget singleNew(context) {
               InkWell(
                 child: Container(
                   child: Text(
-                    "THÔNG BÁO VỀ LỊCH CẮT ĐIỆN HÀ NỘI 10 - 14/7/2021",
+                    "THÔNG BÁO TẠM NGƯNG CUNG CẤP ĐIỆN KHẨN CẤP",
                     overflow: TextOverflow.ellipsis,
                     maxLines: 4,
                     style: TextStyle(fontSize: 16),
@@ -194,7 +194,7 @@ Widget singleNew(context) {
               InkWell(
                 child: Container(
                   child: Text(
-                    "Dưới đây là lịch cắt điện Hà Nội ngày 10-14/7 chi tiết",
+                    "Công Ty Điện Lực Sài Gòn trân trọng thông báo: trong ngày 30/08/2021",
                     overflow: TextOverflow.ellipsis,
                     maxLines: 2,
                     style: TextStyle(fontSize: 14, color: Colors.grey),

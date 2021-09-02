@@ -26,42 +26,52 @@ table, th, td {
 </head>
 <body>
 
-<h2 style = "font-size: 20px; color: grey; text-align:center"> <span style =" color: orange">  &#9888;</span> THÔNG BÁO VỀ LỊCH CẮT ĐIỆN HÀ NỘI 10 - 14/7/2021 </h2>
-<p style = "color: grey"> Dưới đây là lịch cắt điện Hà Nội ngày 10-14/7 chi tiết: </p>
-<h2>I. QUẬN BA ĐÌNH</h2>
+<h2 style = "font-size: 20px; color: grey; text-align:center"> <span style =" color: orange">  &#9888;</span>THÔNG BÁO TẠM NGƯNG CUNG CẤP ĐIỆN KHẨN CẤP</h2>
+<p style = "color: grey"> Công Ty Điện Lực Sài Gòn trân trọng thông báo: trong ngày 30/08/2021, trên địa bàn Quận 1 và Quận 3 xảy ra ngưng cung cấp điện khẩn cấp một số đường dây trung thế và trạm hạ thế do sự cố, sự kiện bất khả kháng. Kính đề nghị Quý Khách Hàng xem mã trạm ( gồm 9 chữ số ) hoặc mã đường dây ( gồm 4 chữ số ) trong thông báo này, so sánh với mã trạm 2 hoặc 4 chữ số đầu của mã trạm ghi trên hóa đơn tiền điện để biết về tình hình tạm ngưng cung cấp điện.
+Khi xảy ra những vấn đề liên quan đến mất an toàn trên hệ thống điện Thành phố, xin Quý Khách Hàng vui lòng gọi số điện thoại: 1900545454
+Kính mong Quý Khách Hàng thông cảm. Chân thành cám ơn! 
+Cụ thể về tình hình tạm ngưng cung cấp điện đột xuất như sau :
+</p>
 
 <table style="width:100%">
   <tr>
-    <th>NGÀY</th>
-    <th>GIỜ</th> 
-    <th>KHU VỰC</th>
+    <th>STT</th>
+    <th>MÃ TRẠM/MÃ ĐƯỜNG DÂY</th> 
+    <th>KHU VỰC CẮT ĐIỆN</th>
+    <th>THỜI GIAN CẮT ĐIỆN</th>
+    <th>LÝ DO</th> 
   </tr>
   <tr>
-    <td>10/07/2021</td>
+    <td>Q19P</td>
     <td>Từ 00:00 Đến 07:00</td>
-    <td>Công ty Cổ phần Đầu tư và xây dựng số 4 - Số 243 Đê La Thành</td>
+    <td>Một phần Phường Nguyễn Cư Trinh Q1</td>
+    <td>15:34	->	15:59</td>
+    <td>Cắt điện chữa cháy</td>
   </tr>
   <tr>
-    <td>11/07/2021</td>
+    <td>L29F</td>
     <td>Từ 00:00 Đến 07:00</td>
-    <td>Trung tâm Kỹ thuật điện ảnh - Số 465B Hoàng Hoa Thám</td>
+    <td>Một phần Phường Nguyễn Cư Trinh Q1</td>
+    <td>15:34	->	15:59</td>
+    <td>Cắt điện chữa cháy</td>
+  </tr>
+  <tr>
+    <td>S29F</td>
+    <td>Từ 00:00 Đến 07:00</td>
+    <td>Một phần Phường Đakao, Tân Định Q1</td>
+    <td>10:27	->	10:35</td>
+    <td>Cắt điện chữa cháy</td>
+  </tr>
+  <tr>
+    <td>E1AO</td>
+    <td>Từ 00:00 Đến 07:00</td>
+    <td>Một phần Phường Đakao, Tân Định Q1</td>
+    <td>10:27	->	10:35</td>
+    <td>Cắt điện chữa cháy</td>
   </tr>
 </table>
 
-<h2>II. HUYỆN GIA LÂM</h2>
-
-<table style="width:100%">
-  <tr>
-    <td>10/07/2021</td>
-    <td>Từ 04:00 Đến 12:00</td>
-    <td>Một phần xã Dương Xá, Kiêu Kỵ</td>
-  </tr>
-  <tr>
-    <td>11/07/2021</td>
-    <td>Từ 04:30 Đến 12:00</td>
-    <td>Một phần KCN Phú Thị (không mất điện dân sinh)</td>
-  </tr>
-</table>
+<h4>Công ty Điện lực Sài Gòn, trân trọng thông báo.</h4>
 
 </body>
 </html>
@@ -91,7 +101,7 @@ class _htmlContentScreenState extends State<htmlContentScreen> {
             padding: EdgeInsets.all(8.0),
             alignment: Alignment.topLeft,
             child: Text(
-              "THÔNG BÁO VỀ LỊCH CẮT ĐIỆN HÀ NỘI 10-14/7/2021",
+              "THÔNG BÁO TẠM NGƯNG CUNG CẤP ĐIỆN KHẨN CẤP",
               style: TextStyle(
                   color: Colors.blue.shade900,
                   fontSize: 20,
@@ -102,7 +112,7 @@ class _htmlContentScreenState extends State<htmlContentScreen> {
             padding: EdgeInsets.all(6.0),
             alignment: Alignment.topLeft,
             child: Text(
-              "2021-07-13 11:51:04",
+              "30/08/2021 08:00",
               style: TextStyle(color: Colors.grey.shade500, fontSize: 14),
             ),
           ),
