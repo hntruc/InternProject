@@ -90,6 +90,7 @@ dev_dependencies:
   analyzer: ^1.4.0
 
 flutter_icons:
+  image_path: "assets/images/icon.png" 
   android: true
   ios: true
 
